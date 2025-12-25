@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Perfect Bakery Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDF6E9',
+                        brown: {
+                            50: '#FAF5F0',
+                            100: '#F5EBE0',
+                            200: '#E6D5C3',
+                            300: '#D4BC9A',
+                            400: '#C4A574',
+                            500: '#B08D57',
+                            600: '#8B6914',
+                            700: '#6B4423',
+                            800: '#4A3728',
+                            900: '#2D1810'
+                        },
+                        gold: '#D4A853'
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .animate-shake {
+            animation: shake 0.3s ease-in-out;
+        }
+        @keyframes checkmark {
+            0% { stroke-dashoffset: 100; }
+            100% { stroke-dashoffset: 0; }
+        }
+        .password-strength-bar {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-cream min-h-screen">
+    <div class="min-h-screen flex">
+        <!-- Left Side - Image/Branding -->
+        <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-brown-700 via-brown-800 to-brown-900 relative overflow-hidden">
+            <!-- Decorative Elements -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 w-32 h-32 border-2 border-white rounded-full"></div>
+                <div class="absolute bottom-40 right-20 w-48 h-48 border-2 border-white rounded-full"></div>
+                <div class="absolute top-1/2 left-1/3 w-24 h-24 border-2 border-white rounded-full"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col justify-center items-center w-full p-12 text-white">
+                <div class="text-center">
+                    <span class="text-8xl mb-6 block animate-float">🎂</span>
+                    <h1 class="font-display text-5xl font-bold mb-4">Join Our Family</h1>
+                    <p class="text-xl text-brown-200 mb-8 max-w-md">
+                        Create an account and start enjoying the finest baked goods delivered to your doorstep.
+                    </p>
+                    
+                    <!-- Benefits -->
+                    <div class="grid grid-cols-2 gap-6 max-w-lg mx-auto mt-8">
+                        <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                            <span class="text-4xl mb-3 block">🎁</span>
+                            <h3 class="font-semibold text-lg mb-1">100 Welcome Points</h3>
+                            <p class="text-brown-200 text-sm">Start earning rewards immediately</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                            <span class="text-4xl mb-3 block">🚚</span>
+                            <h3 class="font-semibold text-lg mb-1">Free Delivery</h3>
+                            <p class="text-brown-200 text-sm">On your first order over $25</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                            <span class="text-4xl mb-3 block">🎂</span>
+                            <h3 class="font-semibold text-lg mb-1">Birthday Treat</h3>
+                            <p class="text-brown-200 text-sm">Free pastry on your special day</p>
+                        </div>
+                        <div class="bg-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                            <span class="text-4xl mb-3 block">⭐</span>
+                            <h3 class="font-semibold text-lg mb-1">Exclusive Access</h3>
+                            <p class="text-brown-200 text-sm">Early access to new items</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Signup Form -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 py-12">
+            <div class="w-full max-w-md">
+                <!-- Mobile Logo -->
+                <div class="lg:hidden text-center mb-8">
+                    <a href="/" class="inline-flex items-center space-x-2">
+                        <span class="text-4xl">🥐</span>
+                        <span class="font-display text-2xl font-bold text-brown-800">Perfect Bakery</span>
+                    </a>
+                </div>
+                
+                <!-- Back to Home -->
+                <a href="/" class="inline-flex items-center space-x-2 text-brown-600 hover:text-brown-800 transition-colors mb-6 group">
+                    <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span>Back to Store</span>
+                </a>
+                
+                <!-- Form Header -->
+                <div class="mb-6">
+                    <h2 class="font-display text-4xl font-bold text-brown-800 mb-2">Create Account</h2>
+                    <p class="text-brown-500">Join Perfect Bakery and start your delicious journey</p>
+                </div>
+                
+                <!-- Alert Container -->
+                <div id="alertContainer" class="hidden mb-6"></div>
+                
+                <!-- Signup Form -->
+                <form id="signupForm" class="space-y-5">
+                    <!-- Name Row -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-brown-700 mb-2">First Name</label>
+                            <input 
+                                type="text" 
+                                id="firstName" 
+                                name="firstName"
+                                required
+                                class="w-full px-4 py-3 rounded-xl border-2 border-brown-200 focus:border-brown-500 focus:ring-0 outline-none transition-colors text-brown-800 placeholder-brown-300"
+                                placeholder="John"
+                            >
+                            <p id="firstNameError" class="text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-brown-700 mb-2">Last Name</label>
+                            <input 
+                                type="text" 
+                                id="lastName" 
+                                name="lastName"
+                                required
+                                class="w-full px-4 py-3 rounded-xl border-2 border-brown-200 focus:border-brown-500 focus:ring-0 outline-none transition-colors text-brown-800 placeholder-brown-300"
+                                placeholder="Doe"
+                            >
+                            <p id="lastNameError" class="text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-brown-700 mb-2">Email Address</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brown-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                </svg>
+                            </span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                required
+                                class="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-brown-200 focus:border-brown-500 focus:ring-0 outline-none transition-colors text-brown-800 placeholder-brown-300"
+                                placeholder="you@example.com"
+                            >
+                        </div>
+                        <p id="emailError" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+                    
+                    <!-- Phone (Optional) -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-brown-700 mb-2">
+                            Phone Number <span class="text-brown-400 font-normal">(Optional)</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brown-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </span>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone"
+                                class="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-brown-200 focus:border-brown-500 focus:ring-0 outline-none transition-colors text-brown-800 placeholder-brown-300"
+                                placeholder="+1 (555) 123-4567"
+                            >
+                        </div>
+                    </div>
+                    
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-brown-700 mb-2">Password</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brown-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password"
+                                required
+                                class="w-full pl-12 pr-12 py-3 rounded-xl border-2 border-brown-200 focus:border-brown-500 focus:ring-0 outline-none transition-colors text-brown-800 placeholder-brown-300"
+                                placeholder="At least 6 characters"
+                            >
+                            <button 
+                                type="button" 
+                                id="togglePassword"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 text-brown-400 hover:text-brown-600 transition-colors"
+                            >
+                                <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <svg id="eyeOffIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Password Strength -->
+                        <div class="mt-2">
+                            <div class="flex space-x-1">
+                                <div id="strength1" class="password-strength-bar h-1 flex-1 rounded-full bg-brown-200"></div>
+                                <div id="strength2" class="password-strength-bar h-1 flex-1 rounded-full bg-brown-200"></div>
+                                <div id="strength3" class="password-strength-bar h-1 flex-1 rounded-full bg-brown-200"></div>
+                                <div id="strength4" class="password-strength-bar h-1 flex-1 rounded-full bg-brown-200"></div>
+                            </div>
+                            <p id="strengthText" class="text-xs text-brown-400 mt-1"></p>
+                        </div>
+                        <p id="passwordError" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+                    
+                    <!-- Confirm Password -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-brown-700 mb-2">Confirm Password</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brown-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword"
+                                required
+                                class="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-brown-200 focus:border-brown-500 focus:ring-0 outline-none transition-colors text-brown-800 placeholder-brown-300"
+                                placeholder="••••••••"
+                            >
+                        </div>
+                        <p id="confirmPasswordError" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+                    
+                    <!-- Terms -->
+                    <div>
+                        <label class="flex items-start space-x-3 cursor-pointer">
+                            <input 
+                                type="checkbox" 
+                                id="agreeTerms" 
+                                name="agreeTerms"
+                                required
+                                class="w-4 h-4 mt-1 rounded border-brown-300 text-brown-600 focus:ring-brown-500"
+                            >
+                            <span class="text-sm text-brown-600">
+                                I agree to the <a href="#" class="text-gold hover:underline font-medium">Terms of Service</a> and <a href="#" class="text-gold hover:underline font-medium">Privacy Policy</a>
+                            </span>
+                        </label>
+                        <p id="agreeTermsError" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button 
+                        type="submit"
+                        id="submitBtn"
+                        class="w-full py-4 bg-gradient-to-r from-brown-600 to-brown-700 text-white rounded-xl font-semibold transition-all duration-300 hover:from-brown-700 hover:to-brown-800 hover:shadow-lg transform hover:scale-[1.02] flex items-center justify-center space-x-2"
+                    >
+                        <span id="btnText">Create Account</span>
+                        <svg id="btnSpinner" class="hidden animate-spin h-5 w-5" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                    </button>
+                </form>
+                
+                <!-- Divider -->
+                <div class="flex items-center my-6">
+                    <div class="flex-1 border-t border-brown-200"></div>
+                    <span class="px-4 text-sm text-brown-400">or continue with</span>
+                    <div class="flex-1 border-t border-brown-200"></div>
+                </div>
+                
+                <!-- Social Login -->
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="/auth/google" class="flex items-center justify-center space-x-2 py-3 border-2 border-brown-200 rounded-xl hover:bg-brown-50 transition-colors group no-underline">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        <span class="font-medium text-brown-700">Google</span>
+                    </a>
+                    <a href="/auth/facebook" class="flex items-center justify-center space-x-2 py-3 border-2 border-brown-200 rounded-xl hover:bg-brown-50 transition-colors group no-underline">
+                        <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span class="font-medium text-brown-700">Facebook</span>
+                    </a>
+                </div>
+                
+                <!-- Login Link -->
+                <p class="text-center mt-6 text-brown-600">
+                    Already have an account? 
+                    <a href="/login.html" class="text-gold font-semibold hover:underline ml-1">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Password visibility toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeOffIcon = document.getElementById('eyeOffIcon');
+        
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            eyeIcon.classList.toggle('hidden');
+            eyeOffIcon.classList.toggle('hidden');
+        });
+        
+        // Password strength checker
+        const strength1 = document.getElementById('strength1');
+        const strength2 = document.getElementById('strength2');
+        const strength3 = document.getElementById('strength3');
+        const strength4 = document.getElementById('strength4');
+        const strengthText = document.getElementById('strengthText');
+        
+        const checkPasswordStrength = (password) => {
+            let strength = 0;
+            if (password.length >= 6) strength++;
+            if (password.length >= 8) strength++;
+            if (/[A-Z]/.test(password) && /[a-z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            return Math.min(strength, 4);
+        };
+        
+        const updateStrengthIndicator = (strength) => {
+            const colors = ['bg-brown-200', 'bg-red-400', 'bg-orange-400', 'bg-yellow-400', 'bg-green-500'];
+            const texts = ['', 'Weak', 'Fair', 'Good', 'Strong'];
+            
+            [strength1, strength2, strength3, strength4].forEach((bar, index) => {
+                bar.className = 'password-strength-bar h-1 flex-1 rounded-full ' + 
+                    (index < strength ? colors[strength] : 'bg-brown-200');
+            });
+            
+            strengthText.textContent = texts[strength];
+            strengthText.className = 'text-xs mt-1 ' + (strength <= 1 ? 'text-red-500' : strength <= 2 ? 'text-orange-500' : strength <= 3 ? 'text-yellow-600' : 'text-green-600');
+        };
+        
+        passwordInput.addEventListener('input', (e) => {
+            const strength = checkPasswordStrength(e.target.value);
+            updateStrengthIndicator(strength);
+        });
+        
+        // Form submission
+        const signupForm = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const alertContainer = document.getElementById('alertContainer');
+        
+        const showAlert = (message, type = 'error') => {
+            const bgColor = type === 'error' ? 'bg-red-50 border-red-200 text-red-700' : 'bg-green-50 border-green-200 text-green-700';
+            const icon = type === 'error' ? '❌' : '✅';
+            
+            alertContainer.innerHTML = `
+                <div class="${bgColor} border-2 rounded-xl p-4 flex items-center space-x-3">
+                    <span class="text-xl">${icon}</span>
+                    <span>${message}</span>
+                </div>
+            `;
+            alertContainer.classList.remove('hidden');
+            
+            if (type === 'error') {
+                setTimeout(() => {
+                    alertContainer.classList.add('hidden');
+                }, 5000);
+            }
+        };
+        
+        const showFieldError = (fieldId, message) => {
+            const errorEl = document.getElementById(fieldId + 'Error');
+            const inputEl = document.getElementById(fieldId);
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.classList.remove('hidden');
+            }
+            if (inputEl) {
+                inputEl.classList.add('border-red-400');
+            }
+        };
+        
+        const clearFieldErrors = () => {
+            document.querySelectorAll('[id$="Error"]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.querySelectorAll('input').forEach(el => {
+                el.classList.remove('border-red-400');
+            });
+        };
+        
+        const setLoading = (loading) => {
+            submitBtn.disabled = loading;
+            btnText.textContent = loading ? 'Creating account...' : 'Create Account';
+            btnSpinner.classList.toggle('hidden', !loading);
+            if (loading) {
+                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            } else {
+                submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        };
+        
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearFieldErrors();
+            alertContainer.classList.add('hidden');
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+                agreeTerms: document.getElementById('agreeTerms').checked
+            };
+            
+            // Client-side validation
+            let hasErrors = false;
+            
+            if (formData.firstName.length < 2) {
+                showFieldError('firstName', 'First name must be at least 2 characters');
+                hasErrors = true;
+            }
+            
+            if (formData.lastName.length < 2) {
+                showFieldError('lastName', 'Last name must be at least 2 characters');
+                hasErrors = true;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showFieldError('email', 'Please enter a valid email address');
+                hasErrors = true;
+            }
+            
+            if (formData.password.length < 6) {
+                showFieldError('password', 'Password must be at least 6 characters');
+                hasErrors = true;
+            }
+            
+            if (formData.password !== formData.confirmPassword) {
+                showFieldError('confirmPassword', 'Passwords do not match');
+                hasErrors = true;
+            }
+            
+            if (!formData.agreeTerms) {
+                showFieldError('agreeTerms', 'You must agree to the Terms of Service');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) return;
+            
+            setLoading(true);
+            
+            try {
+                const response = await fetch('/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert(data.message, 'success');
+                    // Store user in sessionStorage for React to pick up
+                    sessionStorage.setItem('signupSuccess', JSON.stringify(data.user));
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1500);
+                } else {
+                    if (data.errors) {
+                        Object.entries(data.errors).forEach(([field, message]) => {
+                            showFieldError(field, message);
+                        });
+                    }
+                    showAlert(data.message || 'Signup failed');
+                    setLoading(false);
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                showAlert('An error occurred. Please try again.');
+                setLoading(false);
+            }
+        });
+        
+        // Check if already logged in
+        fetch('/api/user')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.user) {
+                    window.location.href = '/';
+                }
+            });
+    </script>
+</body>
+</html>
