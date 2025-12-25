@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { contactInfo } from '../data/products';
+import { contactInfo } from '../data/products.js';
 import { PhoneIcon, EmailIcon, LocationIcon, ClockIcon } from './icons';
 
 const Contact = () => {

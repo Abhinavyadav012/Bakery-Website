@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { galleryImages } from '../data/products';
+import { galleryImages } from '../data/products.js';
 import { CloseIcon } from './icons';
 
 const Gallery = () => {

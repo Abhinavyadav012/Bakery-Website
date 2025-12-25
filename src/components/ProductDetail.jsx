@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { products } from '../data/products';
+import { products } from '../data/products.js';
 import { Button, QuantitySelector } from './ui';
 import { ProductDetailSkeleton } from './ui/Skeleton';
 import { StarIcon, HeartIcon, HeartFilledIcon, CartIcon } from './icons';

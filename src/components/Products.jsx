@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import ProductCard from './ProductCard';
 import { useProducts, PRODUCT_CATEGORIES } from '../context/ProductContext';
-import { products as fallbackProducts, categories as fallbackCategories } from '../data/products';
+import { products as fallbackProducts, categories as fallbackCategories } from '../data/products.js';
 import { SearchIcon, FilterIcon } from './icons';
 
 const Products = () => {

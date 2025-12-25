@@ -1,5 +1,5 @@
 import { useCart } from '../context/CartContext';
-import { contactInfo, socialLinks } from '../data/products';
+import { contactInfo, socialLinks } from '../data/products.js';
 import { PhoneIcon, EmailIcon, LocationIcon } from './icons';
 
 const Footer = () => {

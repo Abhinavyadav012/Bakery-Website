@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { testimonials } from '../data/products';
+import { testimonials } from '../data/products.js';
 import { StarIcon } from './icons';
 
 const Testimonials = () => {
